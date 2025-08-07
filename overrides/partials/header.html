@@ -1,0 +1,70 @@
+{#-
+This file was automatically generated - do not edit
+-#}
+<header class="md-header header-top">
+    <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+        <div class="md-header__item md-header__start">
+            {% if page.url.startswith('tai-lieu/') %}
+                <a href="/tai-lieu/gioi-thieu.html"  class="md-header__button md-logo" data-md-component="logo">
+                    {% include "partials/logo.html" %}
+                </a>
+            {% elif page.url.startswith('api/') %}
+                <a href="/api/gioi-thieu.html"  class="md-header__button md-logo" data-md-component="logo">
+                    {% include "partials/logo.html" %}
+                </a>
+            {% else %}
+                <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"  class="md-header__button md-logo" data-md-component="logo">
+                    {% include "partials/logo.html" %}
+                </a>
+            {% endif %}
+        </div>
+
+        <div class="md-header__item md-header__end">
+            <div class="md-header__actions">
+                <a class="hide-in-mobile" href="https://cash.maitamanh.vn/login.html">
+                    <button class="md-button">Đăng nhập</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<header class="md-header md-header-sticky header-title-menu" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+        <div class="md-header__item md-header__start">
+            <div class="md-header__title" data-md-component="header-title">
+                <h3 class="md-header__topic" data-md-component="header-topic">
+                      {% if page.url.startswith('tai-lieu/') %}
+                        <a href="/tai-lieu/gioi-thieu.html">
+                        {{ config.document_site_name }}
+                       </a>
+                        {% elif page.url.startswith('api/') %}
+                         <a href="/api/gioi-thieu.html">
+                           {{ config.api_site_name }}
+                        </a>
+                        {% else %}
+                        <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">
+                            {{ config.site_name}}
+                        </a>
+                        {% endif %}
+
+                </h3>
+            </div>
+        </div>
+
+        <div class="md-header__item md-header__center"></div>
+
+        <div class="md-header__item md-header__end header-menu">
+            <div class="group-tabs">
+                 {% include "partials/tabs.html" %}
+            </div>
+            <div class="md-header__actions">
+                <label class="md-header__button md-icon md-header__button_menu" for="__drawer">
+                    {% set icon = config.theme.icon.menu or "material/menu" %}
+                    {% include ".icons/" ~ icon ~ ".svg" %}
+                </label>
+
+            </div>
+        </div>
+    </nav>
+</header>

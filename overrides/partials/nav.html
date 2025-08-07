@@ -1,0 +1,79 @@
+{% import "partials/nav-item.html" as item with context %}
+{% set class = "md-nav md-nav--primary" %}
+
+{% if "navigation.tabs" in features %}
+{% set class = class ~ " md-nav--lifted" %}
+{% endif %}
+
+{% if "toc.integrate" in features %}
+{% set class = class ~ " md-nav--integrated" %}
+{% endif %}
+
+<nav class="{{ class }}" aria-label="{{ lang.t('nav') }}" data-md-level="0">
+    <div class="md-nav__title md-nav_header_mobile" for="__drawer">
+        <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="md-nav__button md-logo" data-md-component="logo">
+            {% include "partials/logo.html" %}
+        </a>
+
+        <div id="close-nav" class="md-icon">
+            {% set icon_close = config.theme.icon.close or "material/close" %}
+            {% include ".icons/" ~ icon_close ~ ".svg" %}
+        </div>
+
+    </div>
+
+    <div class="md-nav__group_list">
+        {% if config.nav_header_custom %}
+        <ul class="md-nav__list md-nav__list_header_custom" data-md-scrollfix>
+            {% for nav_item in config.nav_header_custom %}
+            {% for name, link in nav_item.items() %}
+            <li class="md-nav__item">
+                <a href="{{ link }}"
+                   class="md-nav__link">
+                    <img class="icon" src="/assets/images/nav_link_icon.png" width="108" height="108" alt="">
+                    <span class="md-ellipsis">{{ name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <ul class="md-nav__list md-nav__list_menu_custom" data-md-scrollfix>
+            {% set ns = namespace(is_nav_header_custom=False) %}
+            {% for nav_item in config.nav_header_custom %}
+                {% for title, link in nav_item.items() %}
+                    {% if (title | lower) == (page.title | lower) %}
+                       {% set ns.is_nav_header_custom = True %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            {% for nav_item in nav %}
+                {% if  page.url.startswith('tai-lieu/')  and nav_item.title == 'Tài liệu'  %}
+                    {% for nav_children_item in nav_item.children %}
+                        {% set path = "__nav_" ~ loop.index %}
+                        {{ item.render(nav_children_item, path, 1) }}
+                    {% endfor %}
+                {% elif  ns.is_nav_header_custom and nav_item.title == 'Tài liệu' %}
+                    {% for nav_children_item in nav_item.children %}
+                        {% set path = "__nav_" ~ loop.index %}
+                        {{ item.render(nav_children_item, path, 1) }}
+                    {% endfor %}
+                {% elif page.url.startswith('api/') and nav_item.title == 'API' %}
+                    {% for nav_children_item in nav_item.children %}
+                        {% set path = "__nav_" ~ loop.index %}
+                        {{ item.render(nav_children_item, path, 1) }}
+                    {% endfor %}
+                {% else %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="md-nav__actions">
+        <a href="https://cash.maitamanh.vn/login.html">
+            <button class="md-button">Đăng nhập</button>
+        </a>
+    </div>
+</nav>

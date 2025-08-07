@@ -1,0 +1,107 @@
+:where(.inkeep-widget-vars) {
+    --ikp-spacing-0: 0rem;
+    --ikp-spacing-1: 0.2rem;
+    --ikp-spacing-2: 0.4rem;
+    --ikp-spacing-3: 0.5rem;
+    --ikp-spacing-4: 0.75rem;
+    --ikp-spacing-5: 1rem;
+    --ikp-spacing-6: 1.2rem;
+    --ikp-spacing-7: 1.4rem;
+    --ikp-spacing-8: 1.6rem;
+    --ikp-spacing-9: 1.8rem;
+    --ikp-spacing-10: 2rem;
+    --ikp-spacing-0\.5: 0.1rem;
+    --ikp-spacing-1\.5: 0.3rem;
+    --ikp-spacing-2\.5: 0.5rem;
+    --ikp-spacing-3\.5: 0.7rem;
+    --ikp-radii-xs: 0.1rem;
+    --ikp-radii-sm: 0.1rem;
+    --ikp-radii-base: 0.2rem;
+    --ikp-radii-md: 0.3rem;
+    --ikp-radii-lg: 0.4rem;
+    --ikp-radii-xl: 0.6rem;
+    --ikp-radii-2xl: 0.75rem;
+    --ikp-radii-3xl: 1rem;
+    --ikp-sizes-0: 0;
+    --ikp-sizes-1: 0.2rem;
+    --ikp-sizes-2: 0.4rem;
+    --ikp-sizes-3: 0.6rem;
+    --ikp-sizes-4: 0.75rem;
+    --ikp-sizes-5: 1rem;
+    --ikp-sizes-6: 1.2rem;
+    --ikp-sizes-7: 1.4rem;
+    --ikp-sizes-8: 1.6rem;
+    --ikp-sizes-9: 1.8rem;
+    --ikp-sizes-10: 2rem;
+    --ikp-sizes-0\.5: 0.1rem;
+    --ikp-sizes-1\.5: 0.3rem;
+    --ikp-sizes-2\.5: 0.5rem;
+    --ikp-sizes-3\.5: 0.7rem;
+    --ikp-space-0: 0;
+    --ikp-space-1: 0.2rem;
+    --ikp-space-2: 0.4rem;
+    --ikp-space-3: 0.6rem;
+    --ikp-space-4: 0.75rem;
+    --ikp-space-5: 1rem;
+    --ikp-space-6: 1.2rem;
+    --ikp-space-7: 1.4rem;
+    --ikp-space-8: 1.6rem;
+    --ikp-space-9: 1.8rem;
+    --ikp-space-10: 2rem;
+    --ikp-space-0\.5: 0.1rem;
+    --ikp-space-1\.5: 0.3rem;
+    --ikp-space-2\.5: 0.5rem;
+    --ikp-space-3\.5: 0.7rem;
+}
+
+.ikp-search-bar-trigger__wrapper--size_compact {
+    width: 100%;
+}
+
+.ikp-search-bar-trigger__wrapper--size_compact .ikp-btn--variant_ghost {
+    background: var(--md-accent-bg-color);
+}
+
+.ikp-ai-chat__toolbar {
+    padding-top: 6px;
+}
+
+.ikp-ai-chat__toolbar .ikp-ai-chat__toolbar-header {
+    display: none;
+}
+
+
+.ikp-ai-chat__toolbar .ikp-popover__trigger {
+    display: none;
+}
+
+
+.ikp-switch-view-toggle  .ikp-switch-view-toggle__button--active {
+    display: none;
+}
+@media screen and (max-width: 1219.98px) {
+      .ikp-search-bar-trigger__wrapper--size_compact {
+        width: 28px;
+    }
+
+    .ikp-search-bar-trigger__wrapper--size_compact .ikp-btn--variant_ghost {
+        background: transparent;
+        color: var(--md-primary-bg-color);
+        border: none;
+        padding: 0;
+    }
+
+    .ikp-search-bar-trigger__wrapper--size_compact .ikp-search-bar-trigger__icon > svg > path {
+        color: var(--md-primary-bg-color) !important;
+    }
+
+
+    .ikp-search-bar-trigger__wrapper--size_compact .ikp-btn--variant_ghost .ikp-search-bar-trigger__text {
+        display: none;
+    }
+
+    .ikp-search-bar-trigger__wrapper--size_compact .ikp-btn--variant_ghost .ikp-kbd-shortcut {
+        display: none;
+    }
+}
+

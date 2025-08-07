@@ -1,0 +1,165 @@
+site_name: Tài liệu hướng dẫn
+document_site_name: Tài liệu hướng dẫn
+#api_site_name: Tài liệu API
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.expand
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.share
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotaion
+    - content.code.copy
+  logo: assets/images/logo/mta_logo.png
+  favicon: assets/images/mta-favicon.svg
+  language: vi
+  palette:
+    scheme: diva
+    primary: white
+    accent: light blue
+
+extra_css:
+  - stylesheets/style.css
+  - stylesheets/header.css
+  - stylesheets/sidebar.css
+  - stylesheets/tabs.css
+  - stylesheets/content.css
+  - stylesheets/footer.css
+
+extra_javascript:
+  - javascripts/search-bar.js
+  - javascripts/sidebar.js
+  - javascripts/feedback.js
+
+use_directory_urls: false
+
+plugins:
+  - minify:
+      minify_html: true
+  - redirects:
+      redirect_maps:
+        index.md: tai-lieu/gioi-thieu.md
+
+
+
+nav:
+  - Tài liệu:
+    - Giới thiệu: tai-lieu/gioi-thieu.md
+    - Bắt đầu:
+        - Đăng Nhập: tai-lieu/bat-dau/dang-nhap.md
+    #    - Phí: tai-lieu/bat-dau/phi.md
+    #    - Quản trị và phân quyền: tai-lieu/bat-dau/quan-tri-va-phan-quyen.md
+    - Giao Dịch:
+        - Nạp Tiền: tai-lieu/giao-dich/nap-tien.md
+        - Rút tiền Cash by Code: tai-lieu/giao-dich/rut-tien-code-by-code.md
+     #   - Chia sẻ link thanh toán: tai-lieu/link-thanh-toan/chia-se-link.md
+     #   - Theo dõi link thanh toán: tai-lieu/link-thanh-toan/theo-doi-link.md
+  #  - Rút tiền:
+  #      - Tài khoản rút tiền: tai-lieu/rut-tien/tai-khoan-rut-tien.md
+   #     - Tạo lệnh rút tiền: tai-lieu/rut-tien/tao-lenh-rut-tien.md
+
+
+
+# Custom sidebar link header group
+#nav_header_custom:
+#  - Thương mại điện tử là gì?: https://docs.paykit.vn/thuong-mai-dien-tu-la-gi.html
+#  - Cổng thanh toán là gì?: https://docs.paykit.vn/cong-thanh-toan-la-gi.html
+
+
+markdown_extensions:
+  - abbr
+  - toc:
+      permalink: true
+  #      baselevel: "3"
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.betterem
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.mark
+  - admonition
+  - footnotes
+  - attr_list
+  - def_list
+  - tables
+  - md_in_html
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  generator: false
+  social:
+    - icon: /assets/images/icons/facebook.svg
+      link: https://www.facebook.com/maitamanhdailyvietlott/
+    - icon: /assets/images/icons/zalo.jpg
+      link: https://zalo.me/2396754630676009467
+    - icon: /assets/images/icons/youtube.svg
+      link: https://www.youtube.com/@maitamanhdailyvietlott
+  analytics:
+    provider: google
+    property: G-TWZRE91PCJ
+    feedback:
+      title: Nội dung này có hữu ích cho bạn không?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: Nội dung này hữu ích
+          data: 1
+          note: >-
+            Cảm ơn bạn đã phản hồi!
+        - icon: material/emoticon-sad-outline
+          name: Nội dung này cần được cải thiện
+          data: 0
+          note: >-
+            Cảm ơn bạn đã phản hồi, Paykit sẽ cố gắng cải thiện nội dung này!!
+
+
+copyright: |
+  &copy; Hệ Thống Đại Lý Thanh Toán là một sản phẩm của Công ty&nbsp;<a href="https://maitamanh.vn/" target="_blank" rel="noopener">Mai Tâm Anh</a>
+
+footer_menu:
+  - Thông Tin:
+      - Về Mai Tâm Anh: 'https://maitamanh.vn/ve-mta'
+      - Hợp Tác Viettlot: 'https://maitamanh.vn/hop-tac-kinh-doanh-vietlott'
+      - Hỗ Trợ Đối Tác: 'https://maitamanh.vn/ho-tro-doi-tac-vietlott'
+      
+     
+#  - Giải pháp:
+#      - TM Điện Tử: 'https://paykit.vn/giaiphap/tm-dien-tu'
+#      - TM Xã Hội: 'https://paykit.vn/giaiphap/tm-xa-hoi'
+#      - Kinh doanh tự do: 'https://paykit.vn/giaiphap/kinh-doanh-tu-do'
+#  - Paykit:
+#      - Về Paykit: 'https://paykit.vn/ve-paykit'
+#      - Biểu phí: 'https://paykit.vn/bieu-phi'
+#      - Blog: 'https://paykit.vn/blog'
+#  - Thông tin hữu ích:
+#      - Trung tâm hỗ trợ: 'https://paykit.vn/trung-tam-ho-tro'
+#      - Tài liệu hướng dẫn: 'https://docs.paykit.vn/'
+#      - Tài liệu API: 'https://docs.paykit.vn/api/gioi-thieu.html'
+  - Pháp lý:
+#      - Điều khoản & Điều kiện: 'https://paykit.vn/dieu-khoan-va-dieu-kien'
+#      - Chính sách quyền riêng tư: 'https://paykit.vn/chinh-sach-quyen-rieng-tu'
+#      - Lưu ý về Cookie: 'https://paykit.vn/luu-y-ve-cookie'
+       - Chính Sách Bảo Mật: 'https://maitamanh.vn/chinh-sach-bao-mat'
+       
+  - Hỗ trợ khách hàng:
+     - Tìm điểm bán MTA: 'https://maitamanh.vn/diem-ban'

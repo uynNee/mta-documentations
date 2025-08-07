@@ -1,0 +1,43 @@
+<footer class="md-footer">
+    <div class="footer-background-image">
+        <img src="{{ 'assets/images/meta/footer_menu.jpg' | url }}" alt="logo">
+    </div>
+          <div class="md-footer-meta md-typeset">
+        <div class="md-footer-group_left md-footer-meta__inner">
+            <div class="md-footer_logo_title">
+                {% if page.url.startswith('tai-lieu/') %}
+                    <a href="/tai-lieu/gioi-thieu.html" >
+                         <div class="box-logo">
+                            <img src="{{ 'assets/images/logo/mta_logo_square.png' | url }}" alt="logo">
+                        </div>
+                    </a>
+                {% elif page.url.startswith('api/') %}
+                    <a href="/api/gioi-thieu.html">
+                        <div class="box-logo">
+                            <img src="{{ 'assets/images/logo/mta_logo_square.png' | url }}" alt="logo">
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" >
+                        <div class="box-logo">
+                            <img src="{{ 'assets/images/logo/mta_logo_square.png' | url }}" alt="logo">
+                        </div>
+                    </a>
+                {% endif %}
+
+                <div class="title">
+                    Kinh doanh minh bạch,<br>
+                    Thu nhập ổn định ,<br>
+                    Phát triển lâu dài.
+                </div>
+            </div>
+            {% include "partials/social.html" %}
+        </div>
+
+        <div class="md-footer-group_right md-footer-meta__inner">
+            {% include "partials/footer_menu.html" %}
+            {% include "partials/copyright.html" %}
+        </div>
+
+    </div>
+</footer>

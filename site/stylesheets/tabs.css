@@ -1,0 +1,45 @@
+
+.md-tabs {
+    border-bottom: 1px solid var(--md-typeset-border-color);
+    pointer-events: auto !important;
+    margin: -1rem 0;
+}
+
+.md-tabs[hidden] .md-tabs__link {
+    opacity: 1;
+    transform: unset;
+    transition: unset;
+}
+
+
+.md-tabs .md-tabs__list {
+    margin: 0;
+}
+
+.md-tabs .md-tabs__list .md-tabs__item {
+    color: var(--md-typeset-menu-item-color);
+    height: 4rem;
+}
+
+.md-tabs .md-tabs__list .md-tabs__item .md-tabs__link {
+    margin: 0;
+    height: 100%;
+    align-items: center;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2rem;
+    padding: 1rem;
+}
+
+.md-tabs .md-tabs__list .md-tabs__item--active {
+    color: var(--md-default-fg-color);
+    border-bottom: 2px solid var(--md-default-fg-color);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+
+

@@ -1,0 +1,18 @@
+{% if config.footer_menu %}
+<div class="md-footer-menu">
+    {% for group_menu in config.footer_menu %}
+    <div class="md-footer-menu_group">
+        {% for group_name, group_items in group_menu.items() %}
+        <div class="md-footer-menu_group_title">{{group_name}}</div>
+        <div class="md-footer-menu_group_items">
+            {% for group_item in group_items %}
+            {% for item_name, item_link in group_item.items() %}
+            <a class="md-footer-menu__item" href="{{ item_link }}">{{ item_name }}</a>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

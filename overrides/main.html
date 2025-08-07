@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% macro render_title(nav_item, title) %}
+  {% if nav_item.url == page.url %}
+    <title>{{ title }} - {{ nav_item.title }}</title>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{ title }} - {{ nav_item.title }}" />
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="{{ title }} - {{ nav_item.title }}" />
+  {% elif nav_item.children %}
+    {% for child_nav_item in nav_item.children %}
+        {{render_title(child_nav_item, title) }}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+{% if page %}
+  {% if page.url.startswith('tai-lieu/') %}
+       {% set config_site_name_title = config.document_site_name %}
+    {% elif page.url.startswith('api/') %}
+       {% set config_site_name_title = config.api_site_name %}
+    {% else %}
+        {% set config_site_name_title = config.site_name %}
+    {% endif %}
+{% endif %}
+
+
+{% block site_meta %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% if page.title %}
+<meta name="description" content="{{ page.title }}">
+<!-- Open Graph Tags -->
+<meta property="og:description" content="{{ page.title }}" />
+<!-- Twitter Card Tags -->
+<meta name="twitter:description" content="{{ page.title }}" />
+{% elif config.site_description %}
+<meta name="description" content="{{ config.site_description }}">
+<!-- Open Graph Tags -->
+<meta property="og:description" content="{{ page.site_description }}" />
+<!-- Twitter Card Tags -->
+<meta name="twitter:description" content="{{ page.site_description }}" />
+{% endif %}
+{% if page.meta and page.meta.author %}
+<meta name="author" content="{{ page.meta.author }}">
+{% elif config.site_author %}
+<meta name="author" content="{{ config.site_author }}">
+{% endif %}
+{% if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}">
+{% endif %}
+{% if page.previous_page %}
+<link rel="prev" href="{{ page.previous_page.url | url }}">
+{% endif %}
+{% if page.next_page %}
+<link rel="next" href="{{ page.next_page.url | url }}">
+{% endif %}
+<!-- Open Graph Tags -->
+<meta property="og:image" content="{{ config.meta_image_default }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:type" content="website" />
+{% if config_site_name_title %}
+<meta property="og:site_name" content="{{ config_site_name_title }}" />
+{% endif %}
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ config.meta_image_default | url }}" />
+<meta name="twitter:url" content="{{ page.canonical_url }}" />
+
+{% if "rss" in config.plugins %}
+<link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.created') }}" href="{{ 'feed_rss_created.xml' | url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.updated') }}" href="{{ 'feed_rss_updated.xml' | url }}">
+{% endif %}
+<link rel="icon" href="{{ config.theme.favicon | url }}">
+<meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-9.5.49">
+{% endblock %}
+
+{% block htmltitle %}
+
+{% if page.title and not page.is_homepage and config_site_name_title %}
+   {% set sub_path_name = page.file.url.split('/')[-3] %}
+
+   {% if sub_path_name %}
+    {% for nav_item in nav %}
+        {{ render_title(nav_item, config_site_name_title) }}
+    {% endfor %}
+   {% else %}
+   <title>{{ config_site_name_title }}</title>
+    <!-- Open Graph Tags -->
+   <meta property="og:title" content="{{ config_site_name_title }}" />
+    <!-- Twitter Card Tags -->
+   <meta name="twitter:title" content="{{ config_site_name_title }}" />
+   {% endif %}
+{% else %}
+    <title>{{ config.site_name }}</title>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{ config_site_name_title }}" />
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="{{ config_site_name_title }}" />
+{% endif %}
+
+{% endblock %}
+
+{% block header %}
+  {% if nav and page %}
+    {% include "partials/header.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block tabs %}{% endblock %}
+
+{% block site_nav %}
+{% if nav %}
+{% if page.meta and page.meta.hide %}
+{% set hidden = "hidden" if "navigation" in page.meta.hide %}
+{% endif %}
+
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" {{ hidden }}>
+    <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+            {% if page %}
+                {% include "partials/nav.html" %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block container %}
+<div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+        {% block content %}
+        {% include "partials/content.html" %}
+        {% endblock %}
+    </article>
+
+    {% if "toc.integrate" not in features %}
+    {% if page.meta and page.meta.hide %}
+    {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" {{ hidden }}>
+        <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+                {% include "partials/toc.html" %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% if nav and page %}
+        {% include "partials/footer.html" %}
+    {% endif %}
+{% endblock %}

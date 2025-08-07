@@ -1,0 +1,189 @@
+@font-face {
+    font-family: 'october-l';
+    font-weight: 700;
+    src: url('../assets/fonts/OctoberL-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'october-l';
+    src: url('../assets/fonts/OctoberL-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'october-l-medium';
+    src: url('../assets/fonts/OctoberL-Medium.otf') format('opentype');
+}
+
+:root {
+    --md-text-font: "Roboto";
+    --md-code-font: "Roboto";
+}
+
+[data-md-color-scheme="diva"] {
+    --md-primary-fg-color: #F7F7F7;
+    --md-primary-fg-color--light: #F7F7F7;
+    --md-primary-fg-color--dark: #F7F7F7;
+    --md-primary-bg-color: #121212;
+    --md-primary-bg-color--light: #121212;
+    --md-primary-bg-color--dark: #121212;
+
+    --md-accent-fg-color: #A3A3A4;
+    --md-accent-fg-color--transparent: #526cfe1a;
+    --md-accent-bg-color: #ffffff;
+    --md-accent-bg-color--light: #ffffff;
+
+    --md-footer-fg-color: #ffffff;
+    --md-footer-fg-color--light: #ffffff;
+    --md-footer-fg-color--lighter: #ffffff;
+    --md-footer-bg-color: #121212;
+    --md-footer-bg-color--dark: #121212;
+
+    --md-default-fg-color: #121212;
+    --md-default-fg-color--light: #121212;
+    --md-default-bg-color: #FFFFFF;
+
+    --md-typeset-a-color: #3B82F6;
+    --md-typeset-border-color: #E1E1E1;
+    --md-typeset-menu-item-color: #525252;
+    --md-typeset-menu-item-active-bg-color: #F0F0F0;
+    --md-typeset-content-primary-color: #2E5C3C;
+    --md-typeset-content-disabled: #C3C3C3;
+    --md-typeset-content-content-neutral-light: #A3A3A3;
+}
+
+html {
+    font-size: 20px !important;
+}
+
+.body {
+    font-size: 0.8rem;
+}
+
+.md-container {
+    max-width: 100%;
+}
+
+.md-grid {
+    max-width: 100%;
+}
+
+.md-typeset {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.md-typeset h1, h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+.md-typeset h2, h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 700;
+}
+
+.md-typeset h3, h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-weight: 700;
+}
+
+
+.md-typeset h4, h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+}
+
+.md-typeset h5, h5 {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+}
+
+.md-typeset h6, h6 {
+    font-size: 0.7rem;
+    line-height: 0.8rem;
+    font-weight: 700;
+}
+
+.md-typeset .headerlink {
+    font-family: "Roboto", sans-serif;
+}
+
+.md-main {
+    max-width: 100% !important;
+    padding: 0;
+}
+
+.md-main .md-main__inner {
+    margin: 0;
+    max-width: 100%;
+}
+
+
+.md-button {
+    min-height: 2rem;
+    padding: calc(0.4rem - 1px) 1rem;
+    border-radius: 100px;
+    border: 1px solid var(--md-typeset-border-color);
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.md-button.md-button__primary {
+    background: var(--md-primary-bg-color);
+    border-color: var(--md-primary-bg-color);
+    color: var(--md-default-bg-color);
+}
+
+
+.md-typeset [type=checkbox]:checked + .task-list-indicator:before {
+    background-color: var(--md-typeset-menu-item-color);
+    color: var(--md-default-bg-color);
+}
+
+
+.md-search-result mark {
+    color: var(--md-default-fg-color);
+    background-color: #A0FFBE;
+    text-decoration: none;
+}
+
+.md-typeset mark {
+    background-color: #A0FFBE;
+}
+
+.md-typeset .highlight {
+    --md-code-fg-color: #f69e50;
+    --md-code-bg-color: #282833;
+    --md-code-hl-color: #6CB6FF;
+    --md-code-hl-color--light: #4287ff1a;
+    --md-code-hl-number-color: #96d0ff;
+    --md-code-hl-special-color: #f47067;
+    --md-code-hl-function-color: #a846b9;
+    --md-code-hl-constant-color: #6e59d9;
+    --md-code-hl-keyword-color: #8ddc8c;
+    --md-code-hl-string-color: #96d0ff;
+    --md-code-hl-name-color: #f69e50;
+    --md-code-hl-operator-color: #aebac7;
+    --md-code-hl-punctuation-color: #aebac7;
+    --md-code-hl-comment-color: #aebac7;
+    --md-code-hl-generic-color: #96d0ff;
+    --md-code-hl-variable-color: #96d0ff;
+}
+
+.md-typeset .highlight .linenodiv pre {
+    color: #7E7E85;
+}

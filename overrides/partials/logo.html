@@ -1,0 +1,13 @@
+{#-
+This file was automatically generated - do not edit
+-#}
+{% if config.theme.logo %}
+<img src="{{ config.theme.logo | url }}" alt="logo">
+    {% if config.theme.logo_mobile %}
+    <img class="logo-mobile" src="{{ config.theme.logo_mobile | url }}" alt="logo">
+    {% endif %}
+{% else %}
+
+{% set icon = config.theme.icon.logo or "material/library" %}
+{% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
